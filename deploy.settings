@@ -1,0 +1,6 @@
+## Deploy config
+siteUrl = 
+gitUrl = .git
+groupId = kgy
+name = mvps
+version = 1.0.0

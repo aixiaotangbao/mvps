@@ -1,0 +1,5 @@
+rootProject.name='MVPS'
+include ':app'
+include ':lib-mvps'
+include ':lib-compiler'
+include ':lib-base'
