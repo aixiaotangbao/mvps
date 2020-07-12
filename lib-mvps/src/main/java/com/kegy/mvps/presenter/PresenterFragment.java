@@ -11,6 +11,13 @@ import androidx.fragment.app.Fragment;
 import com.kegy.mvps.commons.RootNamedParam;
 import com.kegy.mvps.utils.InternalAccessIds;
 
+/**
+ * 该类封装了通用的Presenter和Fragment搭配使用的能力，
+ * 实现addToPresenter()方法，加入你自己的业务Presenter。
+ *
+ * @author keguoyu
+ * @version 1.0.2
+ */
 public abstract class PresenterFragment extends Fragment {
 
   private Presenter mPresenter;
@@ -23,13 +30,8 @@ public abstract class PresenterFragment extends Fragment {
     mPresenter = new Presenter();
     addToPresenter(mPresenter);
     mPresenter.create(view);
-    return view;
-  }
-
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
     mPresenter.bind(new RootNamedParam(InternalAccessIds.ACCESS_FRAGMENT_ID, this), this);
+    return view;
   }
 
   /**
@@ -40,14 +42,9 @@ public abstract class PresenterFragment extends Fragment {
   protected abstract int getLayoutId();
 
   @Override
-  public void onStop() {
-    super.onStop();
+  public void onDestroy() {
+    super.onDestroy();
     mPresenter.unBind();
-  }
-
-  @Override
-  public void onDestroyView() {
-    super.onDestroyView();
     mPresenter.destroy();
   }
 }

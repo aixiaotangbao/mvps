@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
  * inject()方法的参数来进行注入
  *
  * @author keguoyu
- * @version 1.0
+ * @version 1.0.2
  */
 public interface InjectorReceiver {
 

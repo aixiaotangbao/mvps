@@ -43,8 +43,33 @@ import io.reactivex.disposables.Disposable;
  *
  * destroy：销毁状态，视图解除绑定。
  *
+ * 回掉onCreate()的时候所有的view会初始化完成，但是这时候的
+ * 数据还没有进行绑定，如果在这时候使用@Inject注入的变量，那
+ * 么将会出现数据为空的情况。所以我们通常一般在onBind()中进
+ * 性具体的逻辑处理。
+ *
+ * Presenter表示一个具体的子逻辑，但是通常来说可能各个子逻辑
+ * 之间可能会有某些数据的通信，所以这时候需要用到RxJava，我们
+ * 不能直接通过一个Presenter引用另一个Presenter的方式来进行数
+ * 据的通信。所以我们通常会在一个Presenter中subscribe，那么这
+ * 时候我们需要使用这样的代码来避免内存泄漏的产生。
+ *
+ * <code>
+ *   addToAutoDisposable(mSubject.subscribe(new Consumer<Boolean>() {
+ *
+ *       @Override
+ *       public void accept(Boolean aBoolean) throws Exception {
+ *          //your our action
+ *       }
+ *     }));
+ *
+ * </code>
+ *
+ * 通过addToAutoDisposable()添加的订阅，Root Presenter会在onUnbind()
+ * 的时候统一进行解除订阅，避免内存泄漏的发生。
+ *
  * @author keguoyu
- * @version 1.0
+ * @version 1.0.2
  */
 public class Presenter implements ViewBinder {
   private final List<Presenter> mPresenters = new ArrayList<>();

@@ -21,11 +21,6 @@ public abstract class PresenterFragmentActivity extends FragmentActivity {
     mPresenter = new Presenter();
     addToPresenter(mPresenter);
     mPresenter.create(this);
-  }
-
-  @Override
-  protected void onStart() {
-    super.onStart();
     mPresenter.bind(new RootNamedParam(InternalAccessIds.ACCESS_ACTIVITY_ID, this), this);
   }
 
@@ -37,14 +32,9 @@ public abstract class PresenterFragmentActivity extends FragmentActivity {
   protected abstract int getLayoutId();
 
   @Override
-  protected void onStop() {
-    super.onStop();
-    mPresenter.unBind();
-  }
-
-  @Override
   protected void onDestroy() {
     super.onDestroy();
+    mPresenter.unBind();
     mPresenter.destroy();
   }
 }

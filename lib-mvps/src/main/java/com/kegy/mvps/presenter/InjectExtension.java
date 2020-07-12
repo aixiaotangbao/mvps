@@ -13,6 +13,10 @@ import com.kegy.mvps.commons.injector.Injector;
 import com.kegy.mvps.commons.injector.Injectors;
 import com.kegy.mvps.receiver.InjectorReceiver;
 
+/**
+ * @author keguoyu
+ * @version 1.0.2
+ */
 @SuppressWarnings("unchecked")
 public final class InjectExtension implements InjectorReceiver {
   private final Object mTarget;

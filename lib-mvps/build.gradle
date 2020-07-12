@@ -71,10 +71,12 @@ dependencies {
 }
 
 publish {
+    repoName = "maven"
     userOrg = 'kgy'
     groupId = 'com.kegy.mvps'
     artifactId = 'mvps'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
+    website="https://github.com/keguoyu/mvps.git"
     desc = 'mvps library'
 }
 

@@ -14,6 +14,8 @@ publish {
     userOrg = 'kgy'
     groupId = 'com.kegy.mvps'
     artifactId = 'base'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = 'mvps base library includes annonation and common utils'
+    website="https://github.com/keguoyu/mvps.git"
+    repoName = "maven"
 }

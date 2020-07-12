@@ -38,13 +38,15 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-//    annotationProcessor project(path: ':lib-compiler')
-//    implementation project(':lib-mvps')
-//    implementation project(':lib-base')
-//    implementation 'com.kegy.mvps:mvps:1.0.1'
-    implementation 'com.kegy.mvps:base:1.0.1'
+    annotationProcessor 'com.kegy.mvps:compiler:1.0.2'
+    implementation 'com.kegy.mvps:mvps:1.0.2'
+    implementation 'com.kegy.mvps:base:1.0.2'
+
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     annotationProcessor"com.google.dagger:dagger-compiler:2.0.2"
+    implementation 'com.jakewharton:butterknife:10.2.1'
 
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
 }

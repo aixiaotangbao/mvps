@@ -17,6 +17,9 @@ publish {
     userOrg = 'kgy'
     groupId = 'com.kegy.mvps'
     artifactId = 'compiler'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = 'mvps annotation processor'
+    website="https://github.com/keguoyu/mvps.git"
+    repoName = "maven"
+
 }
